@@ -1,3 +1,13 @@
 .title{
 	text-align: center;
+	color: red;
+}
+.relative{
+	position: relative ;
+	top: 300px;
+}
+
+.car{
+	background-repeat: no-repeat;
+  	 background-size: auto;
 }

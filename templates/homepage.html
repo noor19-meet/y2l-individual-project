@@ -4,12 +4,18 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
     <title>My Game Style</title>
 </head>
 <body>
 <div class="title">
 	<h1>My Game Style</h1>
+	<div class = "relative">
+	 <a href="{{ url_for('cars') }}" class="badg badge-light" class='cars'> Cars </a>
+	 <a href="{{ url_for('fps') }}" class="badg badge-light" class='fps'> FPS </a>
+	 <a href="{{ url_for('mmorpg') }}" class="badg badge-light" class='mmorpg'> MMO-RPG </a>
+	 <a href="{{ url_for('moba') }}" class="badg badge-light" class='moba'> Moba </a>
+	</div>
 </div>
 </body>
 </html>
