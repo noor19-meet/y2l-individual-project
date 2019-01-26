@@ -33,19 +33,19 @@ def login_page():
         if user is not None:
             if user.password == request.form["password"]:
                 session['username'] = user.name
-                return redirect(url_for("profile_page", username = user.name))
+                return redirect(url_for("homepage.html"))
 
             else:
                 error = 'password does not match'
-                return render_template('home.html', error = error)
+                return render_template('homepage.html', error = error)
         else:
 
             error = 'username does not exist'
-            return render_template('home.html', error = error)
+            return render_template('homepage.html', error = error)
 
     else:
 
-        return render_template('home.html')
+        return render_template('homepage.html')
 
 
 if __name__ == '__main__':

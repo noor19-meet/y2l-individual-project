@@ -37,27 +37,19 @@
 }
 
 .fps p {
-	color: black;
-	background-color: blue;
-
+	color: yellow;
 }
 
 .moba p {
-	color: black;
-	background-color: blue;
-
+	color: yellow;
 }
 
 .mmorpg p {
-	color: black;
-	background-color: blue;
-
+	color: yellow;
 }
 
 .cars p {
-	color: black;
-	background-color: blue;
-
+	color: yellow;
 }
 
 .top5 {
@@ -66,5 +58,23 @@
 }
 
 .top5c {
-	color: blue;
+	color: yellow;
+	background-color: none;
+
 }
+
+.logininfo { 
+    position: fixed;
+    left: 10%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+    
+  
+}
+
+.singup1 { 
+    position: relative;
+    top: 200px;
+    left: 500px;
+    width: 150px;
+    height: 100%;
