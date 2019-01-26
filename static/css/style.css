@@ -9,5 +9,62 @@
 
 .car{
 	background-repeat: no-repeat;
-  	 background-size: auto;
+  	background-size: 100%;
+  	color: red;
+}
+.gifimage{
+
+	
+	background-repeat: no-repeat;
+	background-size: 100% , 100%;
+}
+.moba{
+	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	color: red;
+}
+
+.fps{
+	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	color: red;
+}
+
+.mmorpg{
+	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	color: red;
+}
+
+.fps p {
+	color: black;
+	background-color: blue;
+
+}
+
+.moba p {
+	color: black;
+	background-color: blue;
+
+}
+
+.mmorpg p {
+	color: black;
+	background-color: blue;
+
+}
+
+.cars p {
+	color: black;
+	background-color: blue;
+
+}
+
+.top5 {
+	color: red;
+	text-align: 10px;
+}
+
+.top5c {
+	color: blue;
 }

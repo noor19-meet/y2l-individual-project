@@ -1,6 +1,7 @@
 from flask import Flask, render_template 	 	
 app = Flask(__name__)
 
+import databases
 
 
 @app.route('/')
@@ -22,6 +23,29 @@ def mmorpg():
 @app.route('/moba')
 def moba():
 	return render_template ("moba.html")
+
+
+@app.route('/' , methods = ['GET','POST'])
+def login_page():
+    if request.method == 'POST':
+        user = databases.query_by_name(request.form["name"])
+        print(request.form['name'])
+        if user is not None:
+            if user.password == request.form["password"]:
+                session['username'] = user.name
+                return redirect(url_for("profile_page", username = user.name))
+
+            else:
+                error = 'password does not match'
+                return render_template('home.html', error = error)
+        else:
+
+            error = 'username does not exist'
+            return render_template('home.html', error = error)
+
+    else:
+
+        return render_template('home.html')
 
 
 if __name__ == '__main__':

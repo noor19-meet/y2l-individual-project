@@ -7,8 +7,31 @@
     <link rel="stylesheet" href="static/css/style.css">
     <title>My Game Style</title>
 </head>
-<body>
+<body class='gifimage' style = "background-image: url({{ url_for('static', filename='back.gif') }})">
 <div class="title">
+
+<div class="logininfo" class="container-fluid">
+
+        <h1 class="font-weight-bold mov"> LOGIN</h1>
+
+       		<form  class="btn btn-link" id = "sign_up_link" method = "post"> 
+      
+	        <input type="text" name="name" placeholder="enter full name">
+	        <br>
+
+	        <input type="password" name="password" placeholder="enter password">
+	        <br>
+	        <button class="btn btn-outline-dark" type="submit" value="submit" >LOGIN </button>
+	        <a href="/signup" class="btn btn-dark"> sign up</a>
+	       <!--  <a href="/profile/test4" class="badge badge-dark"> profile</a> -->
+	     
+	        </form>
+	       
+        </div>
+
+
+
+	
 	<h1>My Game Style</h1>
 	<div class = "relative">
 	 <a href="{{ url_for('cars') }}" class="badg badge-light" class='cars'> Cars </a>
