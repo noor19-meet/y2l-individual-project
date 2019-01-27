@@ -24,9 +24,9 @@ def mmorpg():
 def moba():
 	return render_template ("moba.html")
 
-
 @app.route('/' , methods = ['GET','POST'])
 def login_page():
+	
     if request.method == 'POST':
         user = databases.query_by_name(request.form["name"])
         print(request.form['name'])
@@ -46,6 +46,11 @@ def login_page():
     else:
 
         return render_template('homepage.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
 
 
 if __name__ == '__main__':
