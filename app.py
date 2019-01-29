@@ -1,7 +1,8 @@
-from flask import Flask, render_template 	 	
+from flask import Flask, render_template, request, url_for, redirect
+from flask import session as login_session	
 app = Flask(__name__)
 
-import databases
+from databases import *
 
 
 @app.route('/')
@@ -24,9 +25,36 @@ def mmorpg():
 def moba():
 	return render_template ("moba.html")
 
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
+@app.route('/',methods=['POST','GET'])
+def home():
+	if request.method=='POST':
+		user = query_user_by_email(request.form['email'])
+		if user != None and user.password==request.form['password']:
+			login_session['name'] = user.name
+			login_session['email'] = user.email
+			return redirect(url_for('homepage.html'))
+		return redirect('/')
+	if request.method=='GET':
+		return render_template('home.html')
+
+@app.route('/signup',methods=['POST','GET'])
+def sign_up():
+	if request.method=='POST':
+		add_user(request.form['name'],
+			request.form['email'],
+			request.form['password'])
+		return redirect(url_for('home'))
+	if request.method=='GET':
+		return render_template('signup.html')
+
+@app.route('/homepage', methods=['GET','POST'])
+def home_logged_in():
+	if request.method=='GET':
+		if 'email' in login_session:
+			user=query_user_by_email(login_session['email'])
+			return render_template('homepage.html', user=user)
+		else:
+			return render_template('homepage.html')
 
 
 if __name__ == '__main__':
