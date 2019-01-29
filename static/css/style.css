@@ -15,7 +15,8 @@
 .gifimage{
 
 	background-repeat: no-repeat;
-  	background-size: 100%;
+  	background-size: 100%, 100%;
+
 }
 .moba{
 	background-repeat: no-repeat;
@@ -77,4 +78,9 @@
     left: 500px;
     width: 150px;
     height: 100%;
+}
 
+.hello {
+	right: 40%
+	text-align: 10px;
+}

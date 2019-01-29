@@ -12,10 +12,13 @@
 
 <div class="logininfo" class="container-fluid">
 
-        <h1 class="font-weight-bold mov"> Sing up </h1>
+        <h1 class="font-weight-bold mov"> Sign up/Log in </h1>
 
        		<form  class="btn btn-link" id = "sign_up_link" method = "POST" > 
-	        	<a href="/signup" class="btn btn-dark"> Sing up </a>
+	        	<a href="/signup" class="btn btn-dark"> Sign up </a>
+	        	<a href="/logout" class="btn btn-dark"> Log out </a>
+
+
 
 	     
 	        </form>
@@ -29,8 +32,10 @@
 
 
 
-
 	<h1>My Game Style</h1>
+<div class = "hello">
+	<p>Hello, {{session['name']}}</p>
+</div>
 	<div class = "relative">
 	 <a href="{{ url_for('cars') }}" class="badg badge-light" class='cars'> Cars </a>
 	 <a href="{{ url_for('fps') }}" class="badg badge-light" class='fps'> FPS </a>

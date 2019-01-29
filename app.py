@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask import session as login_session	
 app = Flask(__name__)
 
+app.secret_key = "lksfjdklshfsdkl"
+
 from databases import *
 
 
@@ -32,7 +34,7 @@ def home():
 		if user != None and user.password==request.form['password']:
 			login_session['name'] = user.name
 			login_session['email'] = user.email
-			return redirect(url_for('homepage.html'))
+			return redirect(url_for('home'))
 		return redirect('/')
 	if request.method=='GET':
 		return render_template('home.html')
@@ -48,13 +50,20 @@ def sign_up():
 		return render_template('signup.html')
 
 @app.route('/homepage', methods=['GET','POST'])
-def home_logged_in():
+def login():
 	if request.method=='GET':
 		if 'email' in login_session:
 			user=query_user_by_email(login_session['email'])
 			return render_template('homepage.html', user=user)
 		else:
 			return render_template('homepage.html')
+
+@app.route('/logout')
+def logout():
+	del login_session['email']
+	if 'user_name' in login_session.keys(): 
+		del login_session['user_name']
+	return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

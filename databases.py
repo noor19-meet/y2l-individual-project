@@ -6,9 +6,10 @@ engine = create_engine('sqlite:///database.db')
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind = engine)
 session_factory = scoped_session(DBSession)
+session = session_factory()
 
 def add_user(name, email, password):
-	session = session_factory()
+	
 	user_object = User(
 	name=name,
 	email = email,
@@ -33,3 +34,5 @@ def query_by_name(name):
 def query_user_by_email(email):
 	user = session.query(User).filter_by(email=email).first()
 	return user
+
+print([a.email for a in session.query(User).all()])
