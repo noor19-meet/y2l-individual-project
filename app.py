@@ -60,9 +60,10 @@ def login():
 
 @app.route('/logout')
 def logout():
-	del login_session['email']
-	if 'user_name' in login_session.keys(): 
+
+	if 'name' in login_session: 
 		del login_session['user_name']
+		del login_session['email']
 	return redirect(url_for('home'))
 
 

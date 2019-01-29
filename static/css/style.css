@@ -81,6 +81,6 @@
 }
 
 .hello {
-	right: 40%
-	text-align: 10px;
+	position: absolute;
+	right: 90px;
 }
